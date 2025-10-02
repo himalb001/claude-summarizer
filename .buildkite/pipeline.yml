@@ -1,0 +1,11 @@
+steps:
+  - label: ":robot: Buildkite Summarizer"
+    command: echo "Hello"
+    key: "test"
+    plugins:
+      - claude-summarize#v1.1.0:
+          api_key: $BUILDKITE_AGENT_ACCESS_TOKEN
+          anthropic_base_url: "http://agent.buildkite.com/v3/ai/anthropic"
+          custom_prompt: "Hi Claude, crack a joke based on this build step"
+          trigger: "always"
+          annotate: true
