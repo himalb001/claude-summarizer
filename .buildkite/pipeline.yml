@@ -1,0 +1,23 @@
+steps:
+  - name: ":wave: Hello World"
+    command: "echo 'Hello from Buildkite!'"
+
+  - name: ":information_source: Environment Info"
+    command: |
+      echo "Repository: claude-summarizer"
+      echo "Build: #${BUILDKITE_BUILD_NUMBER}"
+      echo "Commit: ${BUILDKITE_COMMIT}"
+      echo "Branch: ${BUILDKITE_BRANCH}"
+
+  - name: ":mag: Repository Check"
+    command: |
+      echo "Current directory: $(pwd)"
+      echo "Files in repository:"
+      ls -la
+      echo "Git status:"
+      git status --porcelain || echo "No git changes"
+
+  - wait
+
+  - name: ":white_check_mark: Build Complete"
+    command: "echo 'Pipeline completed successfully!'"
