@@ -5,7 +5,7 @@ steps:
     plugins:
       - claude-summarize#v1.1.0:
           api_key: $$JOB_ACCESS_TOKEN
-          anthropic_base_url: "https://agent.buildkite.com/v3/ai/anthropic"
+          anthropic_base_url: "http://agent.buildkite.localhost/v3/ai/anthropic"
           custom_prompt: "Hi Claude, crack a joke based on this build step"
           trigger: "always"
           annotate: true
